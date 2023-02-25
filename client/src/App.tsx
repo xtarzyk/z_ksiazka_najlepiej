@@ -1,11 +1,16 @@
 import './App.css'
+import { Routes, Route } from 'react-router-dom'
+import { Layout } from './components/Layout'
+import { IndexPage } from './pages/IndexPage'
 
 function App() {
 
   return (
-    <div className="App">
-
-    </div>
+    <Routes>
+      <Route path='/' element={ <Layout /> }>
+        <Route index element={ <IndexPage /> } />
+      </Route>
+    </Routes>
   )
 }
 
