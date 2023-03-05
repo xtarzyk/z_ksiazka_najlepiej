@@ -12,5 +12,8 @@ export const IndexPage = () => {
 }
 
 const MainPage = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
   max-width: 1200px;
 `
