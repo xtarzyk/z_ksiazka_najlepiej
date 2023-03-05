@@ -16,9 +16,11 @@ export const Navbar = () => {
 const Header = styled.header`
   display: flex;
   justify-content: space-between;
-  margin-top: 20px;
   margin-bottom: 50px;
   align-items: center;
+  background-color: #5a191928;
+  height: 150px;
+  padding: 10px;
 `
 
 const LogoLink = styled(Link)`
