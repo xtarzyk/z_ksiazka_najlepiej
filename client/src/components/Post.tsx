@@ -3,41 +3,48 @@ import styled from 'styled-components'
 
 interface Props {
   src: string
+  title: string
 }
 
-export const Post: FunctionComponent<Props> = ({ src }) => {
+export const Post: FunctionComponent<Props> = ({ src, title }) => {
   return (
     <PostContainer className='post-container'>
       <Img src={src} alt="post-img" />
       <TextOverlay>
-        <Text>Book title</Text>
+        <Text>{title}</Text>
       </TextOverlay>
     </PostContainer>
   )
 }
 
 const TextOverlay = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
   opacity: 0;
+  transform: translate(-50%, -50%);
   transition: .5s ease;
   background-color: rgba(0, 0, 0, 0.5);
 `
 
 const Img = styled.img`
-  display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
   transition: transform .5s ease;
 `
 
 const Text = styled.p`
-  color: white;
-  font-size: 20px;
   position: absolute;
+  color: white;
+  font-size: 30px;
+  text-align: center;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(0);
@@ -46,11 +53,13 @@ const Text = styled.p`
 
 const PostContainer = styled.div`
   display: flex;
-  justify-content: center;
+  gap: 20px;
   margin-bottom: 30px;
   position: relative;
   max-width: 960px;
+  max-height: 400px;
   overflow: hidden;
+  border: 20px solid transparent;
   cursor: pointer;
   &:hover ${TextOverlay} {
     opacity: 1;
